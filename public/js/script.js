@@ -284,3 +284,31 @@ document.getElementById("theme-switch").addEventListener("click", () => {
     window.confettiful = new Confettiful(document.querySelector('.js-container'));
   }
 });
+
+function onKonamiCode(key, cb) {
+  var input = '';
+  document.addEventListener('keydown', function (e) {
+    input += ("" + e.keyCode);
+    if (input === key) {
+      return cb();
+    }
+    if (!key.indexOf(key)) return;
+    input = ("" + e.keyCode);
+  });
+}
+
+onKonamiCode('38384040373937396665', function () {
+  document.getElementById("konami").style.visibility = 'visible';
+})
+
+onKonamiCode('8085828076697685717379', function () {
+  document.getElementById('theme-switch').click();
+})
+
+onKonamiCode('65787978658069', function () {
+  document.getElementById('theme-switch').click();
+})
+
+function hideKonamiImages() {
+  document.getElementById('konami').style.visibility = "hidden";
+}

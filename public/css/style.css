@@ -285,3 +285,9 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+.marquee-scroll-right {
+    position:fixed;
+    z-index:50;
+    bottom: 0px;
+}

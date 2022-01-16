@@ -1,0 +1,120 @@
+html, body, .main {
+    background-color: #E7E7E7;
+}
+
+.scrolling-wrapper{
+	overflow-x: auto;
+    white-space: nowrap;
+}
+
+.btn-underline {
+    border-bottom: 1px solid black;
+}
+
+.w-150p {
+    width: 150px;
+}
+
+.card-block{
+	height: 200px;
+    width: 200px;
+	background-position: center;
+	background-size: cover;
+	transition: all 0.2s ease-in-out !important;
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+.card-block:hover {
+    transform: translateY(-5px);
+    box-shadow: none;
+    opacity: 0.9;
+}
+
+#mainImage {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../images/out.gif');
+    height: 600px;
+    background-position: left;
+}
+
+#mainText {
+    text-align: right;
+    margin: auto;
+}
+
+.social-icon {
+    color: black;
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+.social-icon:hover {
+    color: #D93A3B;;
+}
+
+#canvas {
+    width: 100vw;
+    height: 500px;
+    background-color: #E7E7E7;
+    /* position: absolute; */
+    /* z-index: -1; */
+}
+
+.community {
+    background-color: #E7E7E7;
+    /* height: 80vw; */
+}
+
+#clock {
+    text-align: right;
+}
+
+.clockElement {
+    display: inline-block;
+    text-align: center;
+    padding: 0px 10px 0px 0px;
+}
+
+.num {
+    color: #E04646;
+    font-weight: 500;
+}
+
+@media (max-width: 767px) {
+    .ft-100 {
+        font-size:50px;
+    }
+    #mainImage {
+        height: 300px;
+        background-position: center;
+    }
+    #mainText {
+        text-align: center;
+        margin: auto;
+    }
+
+    #clock {
+        text-align: left;
+    }
+}
+
+#tripDiv {
+    display: grid;
+    font-size: 3vw;
+    place-items: center;
+    margin: 0;
+    height: 100vh;
+}
+
+.marquee-scroll-right {
+    position:fixed;
+    z-index:50;
+    bottom: 0px;
+    pointer-events: none;
+}
+
+.accordion-item, .accordion-button {
+    background-color: #EEEEEE !important;
+}

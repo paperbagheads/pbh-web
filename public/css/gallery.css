@@ -1,0 +1,62 @@
+.innermain {
+    width: 100%;
+    height: calc(100vh - 127px);
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.customP {
+    margin: 0px auto;
+    color: #56BA6A;
+    font-size: 10px;
+    text-transform: uppercase; 
+    max-inline-size: 540px;
+    overflow-wrap: break-word; 
+}
+
+.img {
+    min-width: 200px;
+    min-height: 200px;
+    width: calc(100vw/5);
+    height: calc(100vw/5);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-style: solid;
+    border-width: 20px;
+    border-top-color: #DDD;
+    border-right-color: #EEE;
+    border-left-color: #EEE;
+    border-bottom-color: #FFF;
+}
+
+.dcard {
+    width: 120px;
+    font-family: "Permanent Marker";
+    font-size: 15px;
+    text-align: justify;
+    white-space: normal;
+    background-color: white;
+    color: #1E1E1E;
+    padding: 5px 10px;
+    margin-top: 20px;
+}
+
+.elem {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.elem p {
+    margin: 5px 0px;
+    font-size: 10px;
+    text-align: left;
+}
+
+#resourcesDiv {
+    height: 100vh;
+    overflow-x: scroll;
+}

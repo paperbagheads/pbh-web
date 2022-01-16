@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.mt-6 {
+    margin-top: 70px;
+}
+
+.mb-6 {
+    margin-bottom: 70px;
+}
+
+.mcr-3 {
+    margin-right: 30px;
+}
+
+.mcr-4 {
+    margin-right: 40px;
+}
+
+.pt-6 {
+    padding-top: 70px;
+}
+
+.pb-6 {
+    padding-bottom: 70px;
+}
+
+.a {
+    text-decoration: none;
+}
+
+.anone {
+    color: inherit;
+    text-decoration: inherit;
+}
+  
+.rightAlign {
+    text-align: right;
+}
+
+.w-100p {
+    width: 100px;
+}
+
+.centerEverything {
+    align-items: center;
+    justify-content: center;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.ft-100 {
+    font-size:100px;
+}
+
+.ft-50 {
+    font-size: 50;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.fw-700 {
+    font-weight: 700;
+}

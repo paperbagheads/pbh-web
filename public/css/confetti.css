@@ -1,0 +1,73 @@
+
+@keyframes confetti-slow {
+    0% {
+        transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+    }
+    100% {
+        transform: translate3d(25px, 105vh, 0) rotateX(360deg) rotateY(180deg);
+    }
+}
+@keyframes confetti-medium {
+    0% {
+        transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+    }
+    100% {
+        transform: translate3d(100px, 105vh, 0) rotateX(100deg) rotateY(360deg);
+    }
+}
+@keyframes confetti-fast {
+    0% {
+        transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+    }
+    100% {
+        transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg);
+    }
+}
+
+.confetti-container {
+    perspective: 700px;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.confetti {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    border-radius: 0%;
+}
+.confetti--animation-slow {
+    animation: confetti-slow 5s linear 1 forwards;
+}
+.confetti--animation-medium {
+    animation: confetti-medium 3s linear 1 forwards;
+}
+.confetti--animation-fast {
+    animation: confetti-fast 2s linear 1 forwards;
+}
+  
+.slider-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E7E7;
+}
+
+#normal {
+    font-family: "Playfair Display", serif;
+    font-size: 15px;
+    padding-top: 15px;
+}
+#party {
+    font-family: "Bangers", cursive;
+    font-size: 20px;
+    padding-top: 15px;
+    background: -webkit-linear-gradient(45deg, #53d9d1, #f27b9b, #eb7132);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

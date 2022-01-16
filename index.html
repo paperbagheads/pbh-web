@@ -6,42 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="icon" href="public/favicon.ico" />
 
-    <title>PaperBagHeads NFT</title>
+    <title>Paper Bag Heads NFT</title>
 
+    <link rel="stylesheet" type="text/css" href="public/css/main.css">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/index.css">
+    <link rel="stylesheet" type="text/css" href="public/css/confetti.css">
+    <link rel="stylesheet" type="text/css" href="public/css/float.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.google.com/noto/specimen/Noto+Serif">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.google.com/noto/specimen/Noto+Serif" rel="stylesheet" >
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.google.com/specimen/Permanent+Marker" rel="stylesheet" >
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
 <body>
-<div class="pt-6 pb-6" style="background-color: #E7E7E7;">
+<div class="pt-6 pb-6 bg-e7 d-none" id="tripDiv"></div>
+<div class="d-flex flex-wrap justify-content-center w-100 bg-e7 px-2">
+    <div class="me-auto bd-highlight d-none d-md-block">
+        <a class="anone text-center" target="_blank" href="https://rinkeby.etherscan.io/address/0xb9f143effce18709af9ca09387a52c28aa654ffb"><button class="w-100p custom-btn btn-brown" style="font-weight: 700; font-size: 11px;">0xb9f14...</button></a>
+    </div>
+
+    <a class="anone" href="https://www.paperbagheads.com/gallery"><button class="w-100p custom-btn btn-brown text-center btn-underline" style="font-weight: 700; font-size: 11px;">Gallery</button></a>
+    <a class="anone" href="https://museum.paperbagheads.com"><button class="w-100p custom-btn btn-brown text-center btn-underline" style="font-weight: 700; font-size: 11px;">Museum</button></a>
+    <a class="anone" href="http://members.paperbagheads.com"><button class="w-100p custom-btn btn-brown text-center btn-underline" style="font-weight: 700; font-size: 11px;">Members</button></a>
+
+    <div class="ms-auto bd-highlight d-none d-md-block">
+        <button class="custom-btn btn-brown w-100p" style="font-weight: 700; font-size: 11px;" onclick="float()"></button>
+    </div>
+</div>
+<div class="pt-4 pb-6 bg-e7">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div id="mainImage"></div>
             </div>
             <div class="col-md-6" id="mainText">
-                <h1 class="paperColor ft-100 fw-800">PAPER BAG HEADS</h1>
-                <h2 class="fw-700">Ethereum NFT Project</h2>
-                <div class="spacerSmall"></div>
+                <h1 class="paperColor ft-100 fw-800" id="pbhtitle" onclick="throwConfetti()">PAPER BAG HEADS</h1>
+                <section class="paperColor ft-100 fw-800 d-none" id="float">
+                    <div class="tilt">
+                        <span>PAPER</span><span>BAG</span><span>HEADS</span>
+                    </div>
+                </section>
+                <h2 class="fw-700 mb-4" onclick="showNFT()">Ethereum NFT Project</h2>
                 <div>
-                    <!-- <a class="a" href="https://www.tiktok.com/@pbheads" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-tiktok social-icon mcr-3 mt-3" viewBox="0 0 16 16">
-                            <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
-                        </svg>
-                    </a> -->
-                    <a class="a" href="https://www.instagram.com/pbheads" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-instagram social-icon mcr-3 mt-3" viewBox="0 0 16 16">
-                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                        </svg>
-                    </a>
-                    <a class="a" href="https://www.twitter.com/pbheadsnft" target="_blank">
+                    <a class="a" href="https://www.twitter.com/paperprojects9" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-twitter social-icon mcr-3 mt-3" viewBox="0 0 16 16">
                             <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
                         </svg>
@@ -52,70 +69,72 @@
                         </svg>
                     </a>
                     <a class="a" href="https://opensea.io/paperbagheads" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi social-icon mt-3" viewBox="0 0 90 90">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi social-icon mcr-3 mt-3" viewBox="0 0 90 90">
                             <path d="M90 45C90 69.8514 69.8514 90 45 90C20.1486 90 0 69.8514 0 45C0 20.1486 20.1486 0 45 0C69.8566 0 90 20.1486 90 45Z"/>
                             <path d="M22.2011 46.512L22.3953 46.2069L34.1016 27.8939C34.2726 27.6257 34.6749 27.6535 34.8043 27.9447C36.76 32.3277 38.4475 37.7786 37.6569 41.1721C37.3194 42.5683 36.3948 44.4593 35.3545 46.2069C35.2204 46.4612 35.0725 46.7109 34.9153 46.9513C34.8413 47.0622 34.7165 47.127 34.5824 47.127H22.5432C22.2196 47.127 22.0301 46.7756 22.2011 46.512Z"/>
                             <path d="M74.38 49.9149V52.8137C74.38 52.9801 74.2783 53.1281 74.1304 53.1928C73.2242 53.5812 70.1219 55.0052 68.832 56.799C65.5402 61.3807 63.0251 67.932 57.4031 67.932H33.949C25.6362 67.932 18.9 61.1727 18.9 52.8322V52.564C18.9 52.3421 19.0803 52.1618 19.3023 52.1618H32.377C32.6359 52.1618 32.8255 52.4022 32.8024 52.6565C32.7099 53.5072 32.8671 54.3764 33.2693 55.167C34.0461 56.7435 35.655 57.7283 37.3934 57.7283H43.866V52.675H37.4673C37.1391 52.675 36.9449 52.2959 37.1345 52.0277C37.2038 51.9214 37.2824 51.8104 37.3656 51.6856C37.9713 50.8257 38.8358 49.4895 39.6958 47.9684C40.2829 46.9421 40.8516 45.8463 41.3093 44.746C41.4018 44.5472 41.4758 44.3438 41.5497 44.1449C41.6746 43.7936 41.804 43.4653 41.8965 43.1371C41.9889 42.8597 42.0629 42.5684 42.1369 42.2956C42.3542 41.3617 42.4467 40.3723 42.4467 39.3459C42.4467 38.9437 42.4282 38.523 42.3912 38.1207C42.3727 37.6815 42.3172 37.2423 42.2617 36.8031C42.2247 36.4147 42.1554 36.031 42.0814 35.6288C41.9889 35.0416 41.8595 34.4591 41.7115 33.8719L41.6607 33.65C41.5497 33.2478 41.4573 32.864 41.3278 32.4618C40.9626 31.1996 40.5418 29.9698 40.098 28.8186C39.9362 28.3609 39.7512 27.9217 39.5663 27.4825C39.2935 26.8213 39.0161 26.2203 38.7619 25.6516C38.6324 25.3927 38.5214 25.1569 38.4105 24.9165C38.2857 24.6437 38.1562 24.371 38.0268 24.112C37.9343 23.9132 37.8279 23.7283 37.754 23.5434L36.9634 22.0824C36.8524 21.8836 37.0374 21.6478 37.2546 21.7079L42.2016 23.0487H42.2155C42.2247 23.0487 42.2294 23.0533 42.234 23.0533L42.8859 23.2336L43.6025 23.437L43.866 23.511V20.5706C43.866 19.1512 45.0034 18 46.4089 18C47.1116 18 47.7496 18.2866 48.2073 18.7536C48.665 19.2206 48.9517 19.8586 48.9517 20.5706V24.935L49.4787 25.0829C49.5204 25.0968 49.562 25.1153 49.599 25.143C49.7284 25.2401 49.9133 25.3835 50.1491 25.5591C50.3341 25.7071 50.5329 25.8874 50.7733 26.0723C51.2495 26.4561 51.8181 26.9508 52.4423 27.5194C52.6087 27.6628 52.7706 27.8107 52.9185 27.9587C53.723 28.7076 54.6245 29.5861 55.4845 30.557C55.7249 30.8297 55.9607 31.1071 56.2011 31.3984C56.4415 31.6943 56.6958 31.9856 56.9177 32.2769C57.209 32.6652 57.5233 33.0674 57.7961 33.4882C57.9256 33.687 58.0735 33.8904 58.1984 34.0892C58.5497 34.6209 58.8595 35.1711 59.1554 35.7212C59.2802 35.9755 59.4097 36.2529 59.5206 36.5257C59.8489 37.2608 60.1078 38.0098 60.2742 38.7588C60.3251 38.9206 60.3621 39.0963 60.3806 39.2535V39.2904C60.436 39.5124 60.4545 39.7482 60.473 39.9886C60.547 40.756 60.51 41.5235 60.3436 42.2956C60.2742 42.6239 60.1818 42.9336 60.0708 43.2619C59.9598 43.5763 59.8489 43.9045 59.7056 44.2143C59.4282 44.8569 59.0999 45.4996 58.7115 46.1006C58.5867 46.3225 58.4388 46.5583 58.2908 46.7802C58.129 47.016 57.9626 47.238 57.8146 47.4553C57.6112 47.7327 57.3939 48.0239 57.172 48.2828C56.9732 48.5556 56.7697 48.8284 56.5478 49.0688C56.2381 49.434 55.9422 49.7808 55.6324 50.1137C55.4475 50.331 55.2487 50.5529 55.0452 50.7517C54.8464 50.9736 54.643 51.1724 54.4581 51.3573C54.1483 51.6671 53.8894 51.9075 53.6721 52.1063L53.1635 52.5733C53.0896 52.638 52.9925 52.675 52.8908 52.675H48.9517V57.7283H53.9079C55.0175 57.7283 56.0716 57.3353 56.9223 56.6141C57.2136 56.3598 58.485 55.2594 59.9876 53.5997C60.0384 53.5442 60.1032 53.5026 60.1771 53.4841L73.8668 49.5265C74.1211 49.4525 74.38 49.6467 74.38 49.9149Z" fill="#E7E7E7"/>
-                            </svg>
+                        </svg>
+                    </a>
+                    <a class="a" href="https://www.instagram.com/paperprojects9" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-instagram social-icon mcr-3 mt-3" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                        </svg>
+                    </a>
+                    <a class="a" href="https://www.tiktok.com/@paperprojects9" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-tiktok social-icon mt-3" viewBox="0 0 16 16">
+                            <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
+                        </svg>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div style="background-color: #E7E7E7;">
+<div class="bg-e7"  >
     <div class="scrolling-wrapper js-loop">
-        <div class="card-block" style="background-image: url('public/images/example/1.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/2.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/3.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/4.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/5.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/6.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/7.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/8.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/9.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/10.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/11.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/12.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/13.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/14.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/15.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/16.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/17.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/18.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/19.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/20.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/21.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/22.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/23.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/24.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/25.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/26.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/27.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/28.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/29.png');"></div>
-        <div class="card-block" style="background-image: url('public/images/example/30.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img1.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img2.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img3.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img4.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img5.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img6.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img7.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img8.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img9.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img10.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img11.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img12.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img13.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img14.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img15.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img16.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img17.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img18.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img19.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img20.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img21.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img22.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img23.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img24.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img25.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img26.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img27.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img28.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img29.png');"></div>
+        <div class="card-block" style="background-image: url('public/images/rolling/img30.png');"></div>
     </div>
 </div>
-<div class="slider-content">
-    <!-- <p id="normal">Normal Mode</p> -->
-    <label class="switch" for="theme-switch">
-        <input type="checkbox" id="theme-switch">
-        <span class="slider round"></span>
-    </label>
-    <p id="party">Party Mode!</p>
-</div>
-<div class="pt-6 pb-6" style="background-color: #1E1E1E; color: white;">
+
+<div class="pt-6 pb-6 bg-1e hex-f">
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col">
-                <h1 class="paperColorDark ft-50 fw-700">Mint a PBH from the Collection</h1>
-                <h5 class="mb-4">The PBH mint is coming soon.</h5>
-                <p>Link to be announced. Please make sure you have $ETH and a Metamask Wallet.</p>
-                <a href="#" class="btn btn-dark btn-lg disabled" role="button" aria-pressed="true" style="background-color: #E04646;">Click here to Mint a PBH</a>
+                <h1 class="hex-red ft-50 fw-700">Mint a PBH from the Collection</h1>
+                <p class="mb-4">Mint available from <span class="font-weight-bold font-italic" onclick="trip()">Feb 2, 2022</span>. Make sure you have a digital wallet (like MetaMask) and $ETH (Ethereum tokens).</p>
+                <a href="#" class="btn btn-dark btn-lg disabled" role="button" aria-pressed="true" style="background-color: #E04646;">Link To Be Revealed Soon</a>
             </div>
             <div class="col">
-                <!-- <div id="clock">
+                <div id="clock">
                     <h1>Public Sale In:</h1>
                     <div class=clockElement>
                         <h2 class="num" id="days"></h2>
@@ -133,134 +152,83 @@
                         <h2 class="num" id="seconds"></h2>
                         <p>Secs</p>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
 </div>
 <div class="pt-6 pb-6">
     <div class="container">
-        <h1 class="paperColorDark ft-50 fw-700">Meet The PaperBagHeads</h1>
-        <h5 class="mb-4">Collection of 12,600 NFTs</h5>
+        <h1 class="paperColorDark ft-50 fw-700">Meet the Paper Bag Heads</h1>
+        <h5 class="mt-4 mb-2">Collection of 10,000 NFTs</h5>
         <p class="mb-4">
-            "PaperBagHeads" (PBH for short) is an NFT art project with unique collectibles that will be minted on the Ethereum blockchain. Each NFT's features were hand-created by us (no external artists - all us) and each NFT was algorithmically created to ensure uniqueness and rarity.
+            "Paper Bag Heads" (PBH for short) is an NFT art project with unique collectibles that will be minted on the Ethereum blockchain. Each NFT's features were hand-created by us and each NFT was algorithmically created to ensure uniqueness and rarity. There are over 278 million combinations of these features; however, only 10,000 NFTs will be created.
         </p>
 
-        <h5 class="mt-4">Features</h5>
-        <p>There are over 90 million combinations of these features; however, only 12,600 NFTs will be created.</p>
-
-        <ul class="list-group list-group-horizontal-lg">
-            <li class="list-group-item">Background</li>
-            <li class="list-group-item">Bag Style</li>
-            <li class="list-group-item">Handles</li>
-            <li class="list-group-item">Skin</li>
-            <li class="list-group-item">Eyes</li>
-            <li class="list-group-item">Nose</li>
-            <li class="list-group-item">Mouth</li>
-            <li class="list-group-item">Face Art</li>
-            <li class="list-group-item">Borders</li>
-            <li class="list-group-item">Special Additions</li>
-        </ul>
-
-        <h5 class="mt-4">Example NFT Art</h5>
-        <img width=100% height=100% src="public/images/artboard.png"/>
-
-        <h1 class="paperColorDark ft-50 fw-800 mt-6 mb-3">Rarity</h1>
-        <p>Each PBH is special in its own way; however, some have more rare features than others and can be measured by the following classifications.</p>
-
-        <ol class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold">Tissue</div>
-                    50% of collection
-              </div>
-              <span class="badge bg-danger">1</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold">News</div>
-                    25% of collection
-              </div>
-              <span class="badge bg-danger">2</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                  <div class="fw-bold">Construction</div>
-                  13% of collection
-                </div>
-                <span class="badge bg-danger">4</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Sand</div>
-                    7% of collection
-                </div>
-                <span class="badge bg-danger">5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Photo</div>
-                    4% of collection
-                </div>
-                <span class="badge bg-danger">6</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                    <div class="fw-bold">Banana</div>
-                    1% of collection
-                </div>
-                <span class="badge bg-danger">7</span>
-            </li>
-        </ol>
-    </div>
-    <div class="container">
-        <div class="row row-cols-1 row-cols-lg-3">
-            <div class="col">
+        <h5 class="mt-4 mb-2">Rarity</h5>
+        <p>Each PBH is special in its own way. Some has less attributes; some have more attributes; some have less rare features; some have super rare features. Here's a quick breakdown.</p>
+        <div class="d-flex flex-wrap justify-content-between mb-4">
+            <div class="card p-2 m-1 text-center" style="width: 10rem;">
+                <div class="fw-bold">4 Attributes</div>
+                <div class="card-text small">2% of collection <span class="badge bg-danger">Rare</span></div>
             </div>
-            <div class="col">
+            <div class="card p-2 m-1 text-center" style="width: 10rem;">
+                <div class="fw-bold">5 Attributes</div>
+                <div class="card-text small">15% of collection</div>
             </div>
-            <div class="col">
+            <div class="card p-2 m-1 text-center" style="width: 10rem;">
+                <div class="fw-bold">6 Attributes</div>
+                <div class="card-text small">38% of collection</div>
+            </div>
+            <div class="card p-2 m-1 text-center" style="width: 10rem;">
+                <div class="fw-bold">7 Attributes</div>
+                <div class="card-text small">34% of collection</div>
+            </div>
+            <div class="card p-2 m-1 text-center" style="width: 10rem;">
+                <div class="fw-bold">8 Attributes</div>
+                <div class="card-text small">10% of collection</div>
+            </div>
+            <div class="card p-2 m-1 text-center" style="width: 10rem;">
+                <div class="fw-bold">9 Attributes</div>
+                <div class="card-text small">1% of collection <span class="badge bg-danger">Rare</span></div>
             </div>
         </div>
+        <img width=100% height=100% src="public/images/artboard.png" title="Example Art" />
     </div>
 </div>
 
-<div class="pt-6 pb-6" style="background-color: #1E1E1E; color: white;">
+<div class="pt-6 pb-6 bg-1e hex-f">
     <div class="container">
-        <h1 class="paperColorDark ft-50 fw-800 mb-3">About Us</h1>
-        <p>PaperBagHeads NFTs is a project under the Paper Projects organization which is managed by us, AnonApe and PurpleLugio. We are the NFT artists, the designers, the website developers, the smart contract writers, the community maintainers, the event organizers, and every thing in between and beyond. Our past projects have included a lot of amazing stuff like self-driving robotic cars, virtual drum kits, meme stuff, and even an online dating app! Basically if there's some cool shit going on, we try it. PaperBagHeads represents our offical venture into the NFT space so be on the look out for a ton of random but cool stuff for the PBH community! </p>
+        <div class="pb-6">
+            <h1 class="paperColorDark ft-50 fw-800 mb-3">Become a PBH Owner</h1>
+            <p>By minting a PBH NFT or buying one in a secondary sale, you can become a PBH Owner.</p>
+            <p>PBH Ownership is your entry pass into all the PBH activities, events, and opportunities. To name a few of these, we are currently working on <a class="a" target="_blank" href="https://museum.paperbagheads.com">Paper Museum</a>, "PBH Art Piece" (a community driven art project for owners), <a class="a" target="_blank" href="http://members.paperbagheads.com">Members Only Site</a>, super cool merch, and Paper Hunt (we will keep this one secret for now). Along with the projects we are working on, PBH owners are also eligible to vote on community activities and obtain leadership roles.</p>
+            <p>And of course, you get a SUPER cool SUPER high-res (4320px X 4320px) PBH NFT PFP. You are free to do whatever you'd like with your PBH NFT.</p>
 
-        <h1 class="paperColorDark ft-50 fw-800 mt-6 mb-3">Road Map</h1>
-        <div class="container">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                <div class="col">
-                    <h3>Before Mint</h3>
-                    <p>Social media outreach and community building! That's what we are doing right now - join our Discord and follow us on social media!</p>
-                </div>
-                <div class="col">
-                    <h3>Mint</h3>
-                    <p>Initial Offering!</p>
-                </div>
-                <div class="col">
-                    <h3>5%</h3>
-                    <p>We pay back our moms and dads and friends and landlords and credit card companies.</p>
-                </div>
-                <div class="col">
-                    <h3>25%</h3>
-                    <p>Airdrops (free PBH NFT giveaways) to 5 lucky Discord members!</p>
-                </div>
-                <div class="col">
-                    <h3>50%</h3>
-                    <p>"PaperBagHeads Art Piece" open to edit and <a class="btn paperFont" style="color: #1E1E1E; background-color: #D2BA99; padding: 5px 20px; letter-spacing: 1px;" href="https://museum.paperbagheads.com">Paper Museum</a> opening.</p>
-                </div>
-                <div class="col">
-                    <h3>75%</h3>
-                    <p>We will be donating $20,000 to The Ocean Cleanup Project, that is developing scalable technologies to rid the oceans of plastic.</p>
-                </div>
-                <div class="col">
-                    <h3>100%</h3>
-                    <p>Merch Store Open and virtual / in-person meetups, hangouts, parties, and more!</p>
-                </div>
+        </div>
+
+        <h1 class="hex-red ft-50 fw-800 mb-3">Road Map</h1>
+        <div class="d-flex flex-wrap justify-content-between mb-4">
+            <div class="card p-4 m-1 text-center" style="background-color: black; width: 23%; min-width: 230px;">
+                <h3 class="fw-bold">25%</h3>
+                <h1>🎁</h1>
+                <p class="card-text">Airdrop giveaways to Discord members and social media followers!</p>
+            </div>
+            <div class="card p-4 m-1 text-center" style="background-color: black; width: 23%; min-width: 230px;">
+                <h3 class="fw-bold">50%</h3>
+                <h1>🎨</h1>
+
+                <p class="card-text">Members only site launch! Paper Museum Opening! "PBH Art Piece" open to edit.</p>
+            </div>
+            <div class="card p-4 m-1 text-center" style="background-color: black; width: 23%; min-width: 230px;">
+                <h3 class="fw-bold">75%</h3>
+                <h1>🌲</h1>
+                <p class="card-text">We are going to donate proceedings from this project to plant trees.</p>
+            </div>
+            <div class="card p-4 m-1 text-center" style="background-color: black; width: 23%; min-width: 230px;">
+                <h3 class="fw-bold">100%</h3>
+                <h1>🎉</h1>
+                <p class="card-text">Merch Store Open! Roadmap 2.0 release.</p>
             </div>
         </div>
     </div>
@@ -269,28 +237,82 @@
 
 
 <div class="pt-6" style="background-color: #E7E7E7;">
-    <div class="container">
-        <h1 class="paperColorDark ft-50 fw-800 mb-3">Become a PBH Owner</h1>
-        <p>Look out for information about minting a PBH NFT! By minting one or more, you become a PBH Owner, which comes with a lot of perks!</p>
-        <p>PBH Ownership is your entry pass into all the Paper Project activities, events, and opportunities. To name a few of these, we are currently working on <a class="a" href="https://museum.paperbagheads.com">Paper Museum</a> (a community driven art project for owners), Paper Merch Store (super cool merch available to owners), and Paper Hunt (we will keep this one secret for now).</p>
-        <p>Along with the projects we are working on, PBH owners are also eligible to win free prints of their NFT art piece, vote on community activities, and have leadership opportunities.</p>
-        <p>Join the <a class="a" href="https://discord.gg/5sCxsVM2hv">Discord</a> for more information.</p>
+    <div class="container pb-6">
+        <h1 class="paperColorDark ft-50 fw-800 mb-3">About Us</h1>
+        <div class="row">
+            <div class="col-sm-8">
+                <p>Paper Bag Heads NFTs is a project under the Paper Projects organization which is managed by us, AnonApe and PurpleLugio. We are the NFT artists, the project designers, the website developers, the smart contract writers, the community maintainers, the event organizers, and every thing in between and beyond. Our past projects include a lot of (in our opinion...) <span class="fst-italic">cool</span> stuff like a food donation app, self-driving robotic cars, virtual drum kits, meme stuff, and even an online social app! Basically if there's some cool shit going on, we try give it a try. Paper Bag Heads represents our offical venture into the NFT space so be on the look out for a ton of cool stuff for the PBH community! </p>
+            </div>
+            <div class="col-sm-4">
+                <div class="d-flex flex-wrap justify-content-center">
+                    <img class="m-2" width=150px height=150px src="public/images/1.png" title="AnonApe" />
+                    <img class="m-2" width=150px height=150px src="public/images/2.png" title="PurpleLugio" />
+ 
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="container mt-5 pb-6">
+
+    <div class="container pb-6">
+        <h1 class="hex-red ft-50 fw-800 mb-3">FAQs</h1>
+
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading1">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapseOne">
+                    How to I get PBH NFT?
+                </button>
+              </h2>
+              <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    When the mint is available, we will give a link to the website where you will be able to purchase a PBH NFT with Ethereum. Alternatively, you can use the contract's mint function on Etherscan. Be sure you have $ETH and a Metamask wallet.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Why should I buy a PBH NFT?
+                </button>
+              </h2>
+              <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    Besides having a super cool profile pic, you will be eligible for all PBH activities such as the Paper Bag Heads Art Piece. More information about future activites will be on our Discord.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-heading3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapseThree">
+                    What do I do after minting my PBH NFT?
+                </button>
+              </h2>
+              <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    Intially, all images will be hidden until the collection sells out. Once the collection sells out, you will release the metadata and images for all PBH NFTs, and you will be able to see all the cool attributes your PBH has. You can also connect your wallet with Opensea and you will see the NFT in your wallet as well.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapseThree">
+                    What are the tokenomics?
+                  </button>
+                </h2>
+                <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    There are a total of 10,000 PBH NFTs. 100 PBH NFTs will be reserved for promotional giveaways, the team, and people who helped along the way.
+                  </div>
+                </div>
+              </div>
+          </div>
+    </div>
+
+    <div class="container pb-6">
         <h1 class="paperColorDark ft-50 fw-800 mb-3">Join the <span id="party" style="font-size: 40px;">Party.</span></h1>
-        <p>We are active on Instagram, Twitter, and Discord. That's where we will post about latest news, givewaways, projects, and other important announcements. Make sure to join the Discord and follow us on social media to be part of the action!</p>
+        <p>We are active on Twitter, Discord, and Instagram. That's where we will post about latest news, givewaways, projects, and other important announcements. Make sure to join the Discord and follow us on social media to be part of the action!</p>
         <div>
-            <!-- <a class="a" href="https://www.tiktok.com/@pbheads" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-tiktok social-icon mcr-4 mt-4" viewBox="0 0 16 16">
-                    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
-                </svg>
-            </a> -->
-            <a class="a" href="https://www.instagram.com/pbheads" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-instagram social-icon mcr-4 mt-4" viewBox="0 0 16 16">
-                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                </svg>
-            </a>
-            <a class="a" href="https://www.twitter.com/pbheadsnft" target="_blank">
+            <a class="a" href="https://www.twitter.com/paperprojects9" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-twitter social-icon mcr-4 mt-4" viewBox="0 0 16 16">
                     <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
                 </svg>
@@ -307,6 +329,16 @@
                     <path d="M74.38 49.9149V52.8137C74.38 52.9801 74.2783 53.1281 74.1304 53.1928C73.2242 53.5812 70.1219 55.0052 68.832 56.799C65.5402 61.3807 63.0251 67.932 57.4031 67.932H33.949C25.6362 67.932 18.9 61.1727 18.9 52.8322V52.564C18.9 52.3421 19.0803 52.1618 19.3023 52.1618H32.377C32.6359 52.1618 32.8255 52.4022 32.8024 52.6565C32.7099 53.5072 32.8671 54.3764 33.2693 55.167C34.0461 56.7435 35.655 57.7283 37.3934 57.7283H43.866V52.675H37.4673C37.1391 52.675 36.9449 52.2959 37.1345 52.0277C37.2038 51.9214 37.2824 51.8104 37.3656 51.6856C37.9713 50.8257 38.8358 49.4895 39.6958 47.9684C40.2829 46.9421 40.8516 45.8463 41.3093 44.746C41.4018 44.5472 41.4758 44.3438 41.5497 44.1449C41.6746 43.7936 41.804 43.4653 41.8965 43.1371C41.9889 42.8597 42.0629 42.5684 42.1369 42.2956C42.3542 41.3617 42.4467 40.3723 42.4467 39.3459C42.4467 38.9437 42.4282 38.523 42.3912 38.1207C42.3727 37.6815 42.3172 37.2423 42.2617 36.8031C42.2247 36.4147 42.1554 36.031 42.0814 35.6288C41.9889 35.0416 41.8595 34.4591 41.7115 33.8719L41.6607 33.65C41.5497 33.2478 41.4573 32.864 41.3278 32.4618C40.9626 31.1996 40.5418 29.9698 40.098 28.8186C39.9362 28.3609 39.7512 27.9217 39.5663 27.4825C39.2935 26.8213 39.0161 26.2203 38.7619 25.6516C38.6324 25.3927 38.5214 25.1569 38.4105 24.9165C38.2857 24.6437 38.1562 24.371 38.0268 24.112C37.9343 23.9132 37.8279 23.7283 37.754 23.5434L36.9634 22.0824C36.8524 21.8836 37.0374 21.6478 37.2546 21.7079L42.2016 23.0487H42.2155C42.2247 23.0487 42.2294 23.0533 42.234 23.0533L42.8859 23.2336L43.6025 23.437L43.866 23.511V20.5706C43.866 19.1512 45.0034 18 46.4089 18C47.1116 18 47.7496 18.2866 48.2073 18.7536C48.665 19.2206 48.9517 19.8586 48.9517 20.5706V24.935L49.4787 25.0829C49.5204 25.0968 49.562 25.1153 49.599 25.143C49.7284 25.2401 49.9133 25.3835 50.1491 25.5591C50.3341 25.7071 50.5329 25.8874 50.7733 26.0723C51.2495 26.4561 51.8181 26.9508 52.4423 27.5194C52.6087 27.6628 52.7706 27.8107 52.9185 27.9587C53.723 28.7076 54.6245 29.5861 55.4845 30.557C55.7249 30.8297 55.9607 31.1071 56.2011 31.3984C56.4415 31.6943 56.6958 31.9856 56.9177 32.2769C57.209 32.6652 57.5233 33.0674 57.7961 33.4882C57.9256 33.687 58.0735 33.8904 58.1984 34.0892C58.5497 34.6209 58.8595 35.1711 59.1554 35.7212C59.2802 35.9755 59.4097 36.2529 59.5206 36.5257C59.8489 37.2608 60.1078 38.0098 60.2742 38.7588C60.3251 38.9206 60.3621 39.0963 60.3806 39.2535V39.2904C60.436 39.5124 60.4545 39.7482 60.473 39.9886C60.547 40.756 60.51 41.5235 60.3436 42.2956C60.2742 42.6239 60.1818 42.9336 60.0708 43.2619C59.9598 43.5763 59.8489 43.9045 59.7056 44.2143C59.4282 44.8569 59.0999 45.4996 58.7115 46.1006C58.5867 46.3225 58.4388 46.5583 58.2908 46.7802C58.129 47.016 57.9626 47.238 57.8146 47.4553C57.6112 47.7327 57.3939 48.0239 57.172 48.2828C56.9732 48.5556 56.7697 48.8284 56.5478 49.0688C56.2381 49.434 55.9422 49.7808 55.6324 50.1137C55.4475 50.331 55.2487 50.5529 55.0452 50.7517C54.8464 50.9736 54.643 51.1724 54.4581 51.3573C54.1483 51.6671 53.8894 51.9075 53.6721 52.1063L53.1635 52.5733C53.0896 52.638 52.9925 52.675 52.8908 52.675H48.9517V57.7283H53.9079C55.0175 57.7283 56.0716 57.3353 56.9223 56.6141C57.2136 56.3598 58.485 55.2594 59.9876 53.5997C60.0384 53.5442 60.1032 53.5026 60.1771 53.4841L73.8668 49.5265C74.1211 49.4525 74.38 49.6467 74.38 49.9149Z" fill="#E7E7E7"/>
                 </svg>
             </a>
+            <a class="a" href="https://www.instagram.com/paperprojects9" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-instagram social-icon mcr-4 mt-4" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                </svg>
+            </a>
+            <a class="a" href="https://www.tiktok.com/@paperprojects9" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-tiktok social-icon mcr-4 mt-4" viewBox="0 0 16 16">
+                    <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/>
+                </svg>
+            </a>
         </div>
     </div>
     <canvas id="canvas"></canvas>
@@ -315,11 +347,9 @@
     <div class="text-center paperFont">PAPER PROJECTS</div>
 </footer>
 <div class="js-container"></div>
-<script src="public/js/script.js"></script>
-
+<script src="public/js/script_i.js"></script>
 <marquee class="marquee-scroll-right" behavior="scroll" direction="right">
     <img id="konami" src="https://i.kym-cdn.com/photos/images/original/001/206/382/b7a.gif" style="visibility:hidden" onclick="hideKonamiImages()" alt=""/>
 </marquee>
-
 </body>
 </html>

@@ -154,7 +154,7 @@ function render () {
   ctx.restore()
 }
 
-var deadline = new Date(2022, 2-1, 2, 12, 0, 0, 0);
+// var deadline = new Date(2022, 2-1, 2, 12, 0, 0, 0);
    
 function getTimeRemaining(endtime) {
     var t = Date.parse(endtime) - Date.parse(new Date());
@@ -195,7 +195,7 @@ function initializeClock(id, endtime) {
       var timeinterval = setInterval(updateClock, 1000);
 }
 
-initializeClock('clock', deadline);
+// initializeClock('clock', deadline);
 
 
 var context = window.document.querySelector('.js-loop'),

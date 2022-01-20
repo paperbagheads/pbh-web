@@ -1,6 +1,6 @@
 .innermain {
     width: 100%;
-    height: calc(100vh - 127px);
+    height: calc(100vh - 87px);
     min-height: 500px;
     display: flex;
     justify-content: center;

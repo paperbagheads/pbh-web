@@ -14,6 +14,10 @@
     background-color: #D03132;
 }
 
+.bg-paper {
+    background-color:#D2BA99
+}
+
 .hex-e7 {
     color: #E7E7E7;
 }
@@ -24,6 +28,22 @@
 
 .hex-red {
     color: #D03132;
+}
+
+.hex-1e {
+    color: #1e1e1e;
+}
+
+.hex-paper {
+    color:#D2BA99
+}
+
+.hex-brown {
+    color: #BEA88A;
+}
+
+.hex-green {
+    color: #71B772;
 }
 
 .bd-fff {
@@ -40,7 +60,6 @@
 }
   
 .curvebox {
-    color: #e7e7e7;
     border-radius: 5px;
     font-style: italic;
     padding: 0px 10px;
@@ -59,17 +78,9 @@
 }
   
 .paperFont {
-    font-family: "Noto Serif", serif;
+    font-family: 'Noto Serif', serif;
     letter-spacing: 2px;
     font-weight: 500;
-}
-
-.paperColor {
-    color:#D2BA99
-}
-
-.paperColorDark {
-    color: #BEA88A;
 }
 
 .pixelFont {
@@ -77,7 +88,7 @@
 }
 
 .markerFont {
-    font-family: "Permanent Marker";
+    font-family: 'Permanent Marker', cursive;
 }
 
 .custom-btn {

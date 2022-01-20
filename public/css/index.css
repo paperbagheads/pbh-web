@@ -15,6 +15,48 @@ html, body, .main {
     width: 150px;
 }
 
+.w-third {
+    width: 350px;
+}
+
+.button {
+    margin: 30px 0px;
+    padding: auto;
+    width: 262px;
+    height: 45px;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #56BA6A;
+    background-color: #000;
+    border: none;
+    border-radius: 4px;
+    /* box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); */
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+  
+.button:hover {
+    background-color: #D03132;
+    box-shadow: 0px 15px 20px rgba(206, 187, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+  
+.text-block {
+    padding: 30px 0px 30px 0px;
+}
+
+.rarity-block {
+    border-radius: 5px;
+    border: 1px solid #e7e7e7;
+}
+
+.b-width {
+    width: 240px;
+}
+
 .card-block{
 	height: 200px;
     width: 200px;
@@ -57,14 +99,10 @@ html, body, .main {
 #canvas {
     width: 100vw;
     height: 500px;
-    background-color: #E7E7E7;
-    /* position: absolute; */
-    /* z-index: -1; */
 }
 
 .community {
     background-color: #E7E7E7;
-    /* height: 80vw; */
 }
 
 #clock {
@@ -98,6 +136,14 @@ html, body, .main {
     #clock {
         text-align: left;
     }
+
+    .w-third {
+        width: 100%;
+    }
+
+    .b-width {
+        width: 200px;
+    }
 }
 
 #tripDiv {
@@ -116,5 +162,79 @@ html, body, .main {
 }
 
 .accordion-item, .accordion-button {
-    background-color: #EEEEEE !important;
+    background-color: #E7E7E7 !important;
+}
+
+@-webkit-keyframes banner {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+}
+  
+@keyframes banner {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+}
+@-webkit-keyframes banner-r {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+}
+@keyframes banner-r {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+}
+  
+.banner {
+    border-bottom: 1px solid #1e1e1e;
+    font-size: 50px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background: #E7E7E7;
+    color: e7e7e7w;
+    font-weight: bold;
+}
+  
+.track {
+    height: 100%;
+    overflow: hidden;
+    padding: 14px 0px;
+    position: absolute;
+    transition: background-color 300ms ease, color 300ms ease;
+    white-space: nowrap;
+}
+.track .text {
+    -webkit-animation: banner 20000ms linear infinite;
+            animation: banner 20000ms linear infinite;
+    align-items: center;
+    display: inline-flex;
+    will-change: transform;
+}
+.track .text.-r {
+    -webkit-animation-name: banner-r;
+            animation-name: banner-r;
+}
+.track .text.-twox {
+    -webkit-animation-duration: 20000ms;
+            animation-duration: 20000ms;
+}
+.trackHover:hover {
+    background-color: #1e1e1e;
+    color: #C0403A;
 }
